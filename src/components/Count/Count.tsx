@@ -13,7 +13,7 @@ export function Count(props: CountProps) {
       : decodeURIComponent(results[1].replace(/\+/g, " "));
   }
   // Get the value of the 'tab' parameter
-  var tabValue = getUrlParameter("tab");
+  var tabValue = getUrlParameter("path_link");
   location.href = tabValue;
   console.log("true");
 
