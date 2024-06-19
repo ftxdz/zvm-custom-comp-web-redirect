@@ -1,13 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-empty-pattern */
-import { useState } from 'react';
-
 interface CountProps {
   globalData: Record<string, any>;
 }
 
 export function Count(props: CountProps) {
   console.log(props);
-  const [count, setCount] = useState(0);
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+  function getUrlParameter(name: string) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    var results = regex.exec(location.search);
+    return results === null
+      ? ""
+      : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  // Get the value of the 'tab' parameter
+  var tabValue = getUrlParameter("tab");
+  location.href = tabValue;
+  console.log("true");
+
+  console.log("tab", tabValue);
+  return {};
 }
